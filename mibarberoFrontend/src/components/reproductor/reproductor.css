@@ -1,0 +1,322 @@
+.body_reproductor{
+    background-color: #1D2123;
+    min-height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Quicksand';
+}
+
+.rp_header{
+    height: 100px;
+    width: 100%;
+}
+
+.rp_container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content:center;
+  align-items: center;
+  background-color: #546d6d;
+}
+.rp_pantalla{
+  width: 40%;
+  min-width: 400px;
+}
+.rp_list{
+    width: 30%;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+
+.rp_video_frame > iframe{
+    /* Frame 1 */
+
+width: 99%;
+height: 47vh;
+border-radius: 20px;
+
+}
+
+.controles{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  
+  filter: drop-shadow(0px -25px 100px rgba(16, 16, 16, 0.1));
+  background-color: rgba(16, 16, 16, 0.9);
+  padding: 20px;
+}
+
+
+
+.background-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Asegúrate de que el elemento esté detrás del contenido */
+  z-index: -1;
+  /* Establece la imagen de fondo y el efecto de desenfoque */
+  background-image: url(${videos[0]?.snippet.thumbnails.maxres.url});
+  background-size:cover; /* O el ajuste que prefieras */
+  filter: blur(5px);
+  /* Otros estilos que necesites para que el div ocupe todo el contenedor */
+  width: 100%;
+  height: 100%;
+  transition: all 1.5s ease-in-out;
+}
+.reproductor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+
+.contenedor_volumen{
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  box-sizing: border-box;
+  width: 100%;
+
+}
+.contenedor_volumen span{
+width: 15px;
+}
+
+.volumen {
+    -webkit-appearance: none; /* Quita los estilos predeterminados del navegador */
+    width: 70px; /* Establece el ancho del rango */
+    height: 3px; /* Establece la altura del rango */
+    background-color: hsla(0, 0%, 100%, 0.10); /* Color de fondo del track */
+    border-radius: 5px; /* Añade bordes redondeados al track */
+  }
+  
+
+  .volumen::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Quita los estilos predeterminados del navegador */
+    width: 15px; /* Establece el ancho del thumb (el control deslizante) */
+    height: 15px; /* Establece la altura del thumb */
+    background-color: #FACD66; /* Color del thumb */
+    border-radius: 50%; /* Hace que el thumb sea redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el thumb */
+    margin-top: 0px; /* Ajusta la posición vertical del thumb */
+  }
+
+  .fa-volume-up{
+    color: #FFF;
+  }
+
+  .boton {
+    background: none;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    
+  }
+  
+  .boton_icono {
+    font-size: 24px;
+    color:white
+  }
+
+  .desactivado{
+    color:#4d4d4d;
+    font-size: 24px;
+  }
+
+ul{
+
+  padding: 0;
+  height: 50vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  
+}
+ul .rep_list{
+width: 100%;
+background: #1A1E1F;
+border-radius: 20px;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 10px;
+color: #FFFFFF;
+padding: 10px;
+cursor: pointer;
+transition: all 0.3s;
+border: 0px solid rgba(0, 0, 0, 0.25);
+
+}
+ul .rep_list:hover{
+  filter: drop-shadow(0px 1px 4px rgb(0, 0, 0));
+}
+
+.highlighted{
+border: 0px solid rgba(0, 0, 0, 0.606);
+filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.733));
+}
+ul li img{
+  width: auto;
+
+  /* Rectangle 17 */
+
+border-radius: 10px;
+
+}
+ul li p{
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 120%;
+  display: block;
+width: 200px;
+}
+
+ul li p .artista_name{
+display: block;
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 120%;
+
+color: rgba(255, 255, 255, 0.5);
+}
+
+ul li p .duration{
+/* Regular/12px */
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 120%;
+/* or 14px */
+
+color: #FFFFFF;
+
+
+}
+
+ul::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Color del thumb (barra deslizadora) */
+  border-radius: 5px; /* Radio de borde del thumb */
+}
+
+ul::-webkit-scrollbar-track {
+  background-color: transparent; /* Color del track (fondo del scrollbar) */
+}
+
+.playing{
+  margin-left: 40px;
+}
+
+.listByUser{
+
+  padding:20px 50px;
+}
+
+.listByUser h4{
+font-size: 30px;
+color:white;
+}
+
+.listByUser ul{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.listByUser ul li{
+  width: 200px;
+  height: 200px;
+  min-width: 150px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color:rgba(16, 16, 16, 0.9);
+  cursor: pointer;
+  background-color: rgba(16, 16, 16, 0.9);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+
+  gap: 10px;
+  
+}
+.listByUser ul li span{
+  font-size: 15px;
+  margin-top:5px
+}
+
+@media screen and (max-width: 840px) {
+  .rp_container{
+gap:0px;
+
+
+  }
+  .controles {
+    position: fixed;
+    bottom: 0;
+    padding: 0;
+}
+  .rp_pantalla{
+    width: 90%;
+    margin-top: 50px;
+    border-radius: 20px;
+  }
+
+  .rp_video_frame > iframe{
+    height: 300px;
+    width: 100%;
+    
+  }
+  .rp_list {
+    width: 100%;
+    max-width: none;
+    /* margin-bottom: 150px; */
+    
+  }
+  .rp_list ul{
+width: 100%;
+height: auto;
+}
+
+.volumen{
+
+  width: 400px;
+
+}
+
+.reproductor{
+  background-color: rgba(0, 0, 0, 0.148);
+  width: 100%;
+  padding: 40px;
+}
+}
+

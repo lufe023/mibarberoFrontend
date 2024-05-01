@@ -1,0 +1,172 @@
+.youtube_search_input{
+    /* topnav */background: #1D2123;
+    
+width: 100%;
+height: 73px;
+color: #fff;
+font-size: 30px;
+border: 0px solid rgba(16, 16, 16, 0.9);
+padding: 8px;
+outline: none; 
+transition: all ease-in-out 0.5s;
+position: relative;
+}
+
+
+
+  .btn_buscar{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+    padding: 10px 30px;
+    height: 73px;
+    background: #1D2123;
+    border: none; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .btn_buscar:hover{
+    background-color:rgb(38, 38, 38)
+  }
+.sear_form{
+    background-color:rgba(16, 16, 16, 0.9);
+    padding: 10px 30px;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Quicksand';
+    position: relative;
+    top:0;
+}
+
+.hidde{
+    margin: 0 50px;
+    width: 50%;
+    min-width: 600px;
+    color: #fff;
+    font-family: 'Quicksand';
+    font-size: 20px;
+    padding: 20px;
+    gap: 0px;
+    position: sticky;
+    top:0;
+    gap: 20px;
+    background-color: rgb(16, 16, 16);
+    box-shadow: 0px 0px 10px rgba(16, 16, 16, 0.9);
+    height: 100px;
+    z-index: 101;
+}
+.hidde p{
+
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.show{
+display:flex;
+}
+
+.btn_hidde{
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #FACD66;
+
+}
+
+.search_list{
+    background-color: rgb(38, 38, 38);
+    z-index: 100;
+    position: relative;
+    height: 550px;
+    width: 50%;
+    min-width: 600px;
+    margin: 0 50px;
+    gap: 0;
+    box-shadow: 0px 0px 10px rgba(16, 16, 16, 0.9);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.search_item{
+height: auto;
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+color: #FFFFFF;
+padding: 10px;
+gap: 20px;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+margin: 0;
+align-items: center;
+}
+
+.add{
+    color: #fff;
+    background-color: rgba(16, 16, 16, 0.9);
+    border: 0;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow-block:clip;
+
+}
+
+.addToList{
+position:relative;
+width: 100%;
+transition: all 0.5s;
+height: 0px;
+background-color: rgb(28, 28, 28);
+font-size: 18px;
+z-index: 1;
+gap:0;
+
+}
+
+.add:hover{
+    background-color: rgb(28, 28, 28);
+}
+
+.add:hover ~ .addToList{
+    position:relative;
+    right: 0px;
+    height: 100px;
+}
+
+.addToList:hover{
+height: 100px;
+}
+.addToList li{
+    width: 100px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.addToList li:hover{
+    background-color: rgb(16, 16, 16);
+}
+
+
+@media screen and (max-width: 840px) {
+
+    .search_list{
+        width: 90%;
+        margin: auto;
+    }
+
+    .hidde{
+        width: 90%;
+        margin: auto;
+    }
+}

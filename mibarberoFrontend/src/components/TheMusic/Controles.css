@@ -1,0 +1,41 @@
+.miniReproductor{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+.miniDescription {
+  /* Establecer el tamaño máximo del contenedor */
+    min-width: 150px; /* Ajusta este valor según sea necesario */
+    max-width: 300px;
+
+  /* Evitar que el texto se salga del contenedor */
+  overflow:auto;
+  text-overflow:clip; /* Agrega puntos suspensivos (...) al final del texto si se trunca */
+  white-space: wrap; /* Evita el salto de línea */
+}
+.miniReproductor h4{
+    font-weight: 500;
+    padding:20px 0;
+    
+}
+
+.thumbnail{
+min-width:110px;
+}
+
+.buttonsGroup{
+    display: flex;
+}
+
+.progessBarContainer{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap:20px;
+  width: 500px;
+}
+
+.progress-bar{
+  width: 100%;
+}
