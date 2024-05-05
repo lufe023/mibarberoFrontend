@@ -1,0 +1,13 @@
+.Playing_List ul i:hover{
+
+    scale: 1.4;
+}
+.Playing_List ul i{
+    transition: all 0.2s;
+}
+
+
+.itemsActions{
+    display: flex;
+    gap: 10px;
+}

@@ -1,9 +1,62 @@
+.player_Controls{
+  position: fixed;
+  background-color:var(--dark-gray);
+  min-height: 100px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 900;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+ transition-delay: 100ms;
+}
+.hide{
+  bottom: -220px;
+  position:-ms-page;
+}
+.abrirCerrar{
+  position: absolute;
+  top:-35px;
+  border:none;
+  border-radius: 5px;
+  background-color: none;
+  font-size: 30px;
+  color: var(--dark-gray);
+  cursor: pointer;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+}
+
 .miniReproductor{
+
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
     gap: 20px;
     color: white;
+    flex-wrap: wrap;
 }
+
+.miniReproductor div{
+  display: flex;
+  align-items: center;
+justify-content: center;
+
+}
+
+
+.miniReproductor h4{
+    font-weight: 500;
+    padding:20px 0;
+
+}
+
+.thumbnail{
+min-width:110px;
+}
+
 .miniDescription {
   /* Establecer el tamaño máximo del contenedor */
     min-width: 150px; /* Ajusta este valor según sea necesario */
@@ -14,28 +67,60 @@
   text-overflow:clip; /* Agrega puntos suspensivos (...) al final del texto si se trunca */
   white-space: wrap; /* Evita el salto de línea */
 }
-.miniReproductor h4{
-    font-weight: 500;
-    padding:20px 0;
-    
-}
-
-.thumbnail{
-min-width:110px;
-}
 
 .buttonsGroup{
     display: flex;
 }
 
+/* Barra de progreso */
 .progessBarContainer{
   display: flex;
   align-items: center;
   padding: 20px;
   gap:20px;
-  width: 500px;
+  width: 100%;
 }
 
 .progress-bar{
   width: 100%;
 }
+.miniMask{
+  gap: 20px;
+}
+.buttonsGroupAndVolume{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.volumenButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 10px;
+}
+
+
+
+.volumen {
+    -webkit-appearance: none; /* Quita los estilos predeterminados del navegador */
+    width: 100%; /* Establece el ancho del rango */
+    height: 3px; /* Establece la altura del rango */
+    background-color: hsla(0, 0%, 100%, 0.10); /* Color de fondo del track */
+    border-radius: 5px; /* Añade bordes redondeados al track */
+  }
+  
+
+  .volumen::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Quita los estilos predeterminados del navegador */
+    width: 15px; /* Establece el ancho del thumb (el control deslizante) */
+    height: 15px; /* Establece la altura del thumb */
+    background-color: #FACD66; /* Color del thumb */
+    border-radius: 50%; /* Hace que el thumb sea redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el thumb */
+    margin-top: 0px; /* Ajusta la posición vertical del thumb */
+  }
+
+  .fa-volume-up{
+    color: #FFF;
+  }

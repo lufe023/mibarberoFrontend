@@ -13,7 +13,6 @@ import getUserPlayists from './getUserPlayists.js'
 const Player = () => {
 
   let user = useSelector(state => state.userSlice)
-  const [straming, setStreaming] = useState([])
   const [playingNow, setPayingNow] = useState()
   const [closeColum, setCloseColum] = useState(false)
 
@@ -22,38 +21,31 @@ const Player = () => {
     getUserPlayists(dispatch);
   }, [])
   
-
-
-
 useEffect(() => {
   if(user?.id){
     getStreaming(user.id,dispatch)
     }
 }, [user,setPayingNow])
-const opts = {
-  height: '390',
-  width: '640',
-  playerVars: {
-    autoplay: 1,
-  },
-};
 
+const [ocultar, setOcultar] = useState(false)
   return (
 <>
 <div style={{height:"59px", background:"rgba(222,207,131,0.27)"}}>
 <Menu/>
     </div>
+
     <div className='playerBody'>
         <div className="columA">
         <PlayerHeader/>
-        <Screen playingNow={playingNow} opts={opts}/>
-        <PlayLists />
+        <Screen playingNow={playingNow}/>
+        <PlayLists setCloseColum={setCloseColum} />
         </div>
         <div className={closeColum?`columB closeColum`:`columB`}>
         <i onClick={()=>setCloseColum(!closeColum)} className={`fas fa-arrow-alt-circle-left open-close ${closeColum?'':'rotate'}`} />
         <PlayingList />
         </div>
     </div>
+
     </>
   )
 }

@@ -8,6 +8,7 @@ const useVideoControl = () => {
 
     const videoOnReady = (event) => {
         playerRef.current = event.target;
+        playerRef.current.setVolume(localStorage.getItem("volumen") || 50);
     };
 
     const videoOnStateChange = (event) => {
@@ -28,6 +29,7 @@ const useVideoControl = () => {
         if (playerRef.current) {
             playerRef.current.setVolume(event.target.value);
         }
+        localStorage.setItem("volumen", event.target.value);
     };
 
     return {
