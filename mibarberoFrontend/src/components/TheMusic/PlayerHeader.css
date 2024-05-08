@@ -9,6 +9,8 @@
     background-color: #242424;
     width: 100%;
     padding: 50px;
+
+    transition: all 0.3s;
 }
 
 .playListMenu{

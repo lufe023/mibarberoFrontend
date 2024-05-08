@@ -9,11 +9,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import getStreaming from '../utils/getStreaming'
 
 import getUserPlayists from './getUserPlayists.js'
+import YouTubeSuggestions from './YouTubeSuggestions.jsx'
 
 const Player = () => {
-
   let user = useSelector(state => state.userSlice)
-  const [playingNow, setPayingNow] = useState()
   const [closeColum, setCloseColum] = useState(false)
 
   const dispatch = useDispatch();
@@ -25,9 +24,9 @@ useEffect(() => {
   if(user?.id){
     getStreaming(user.id,dispatch)
     }
-}, [user,setPayingNow])
+}, [user])
 
-const [ocultar, setOcultar] = useState(false)
+
   return (
 <>
 <div style={{height:"59px", background:"rgba(222,207,131,0.27)"}}>
@@ -37,7 +36,8 @@ const [ocultar, setOcultar] = useState(false)
     <div className='playerBody'>
         <div className="columA">
         <PlayerHeader/>
-        <Screen playingNow={playingNow}/>
+        <Screen/>
+        <YouTubeSuggestions/>
         <PlayLists setCloseColum={setCloseColum} />
         </div>
         <div className={closeColum?`columB closeColum`:`columB`}>

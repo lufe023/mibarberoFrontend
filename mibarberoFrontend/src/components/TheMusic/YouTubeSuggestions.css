@@ -1,0 +1,98 @@
+.sugerencias ul{
+    overflow: scroll;
+}
+.sugerencias ul li{
+
+    font-weight: 500;
+    font-size: 20px;
+    max-width: 200px;
+    text-align: center;
+    margin: 20px;
+}
+
+.sugerencias ul img{
+    border-radius: 0;
+}
+
+.playlist-dropDown{
+
+    box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 1);
+    top: 50px;
+    padding: 20px;
+    background-color: rgb(255, 25, 25);
+    width: auto;
+    z-index: 900000;
+}
+
+.agregar-lista{
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    font-weight: 300;
+    background-color: var(--black);
+    border: none;
+    color: white;
+}
+
+.cancion{
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    box-sizing: content-box;
+    transition: all 0.2s;
+}
+
+.cancion:hover{
+    scale: 1.1;
+}
+.mostrar-listas{
+height: 200px !important;
+overflow:auto;
+transition: all 0.3s;
+}
+
+
+
+/*playListMenu */
+.menu-listas{
+    display: block;
+    background-color:#5c5c5c49;
+    width: auto;
+    height: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all 0.3s;
+    padding: 0;
+    display: inline-block;
+
+}
+
+.menu-listas li{
+    padding:10px 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+}
+.menu-listas li:hover{
+background-color: #242424;
+}
+
+
+
+.menu-listas::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+  }
+
+  .menu-listas::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary); /* Color del thumb (barra deslizadora) */
+    border-radius: 5px; /* Radio de borde del thumb */
+  }
+
+  .menu-listas::-webkit-scrollbar-track {
+    background-color: transparent; /* Color del track (fondo del scrollbar) */
+    
+  }

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import getConfig from '../utils/getConfig';
 import getUserPlayists from './getUserPlayists';
 import { updatePlayingList } from '../../store/slices/player.slice';
+import addVideoToList from './addVideoToList'; // Importa la función
 
 const PlayerHeader = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -47,55 +48,6 @@ const PlayerHeader = () => {
     setSearchTerm(event.target.value);
   };
 
-  const addVideoToList = (listId, videoId) => {
-    const URL = `${import.meta.env.VITE_API_SERVER}/api/v1/playlist/addvideo`;
-    const data = {
-      playListId: listId,
-      videoId: videoId
-    };
-
-    axios
-      .post(URL, data, getConfig())
-      .then(res => {
-        getUserPlayists(dispatch);
-        dispatch(updatePlayingList(res.data.youtubeData));
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: toast => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-
-        Toast.fire({
-          icon: 'success',
-          title: 'Video Agregado',
-        });
-      })
-      .catch(err => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 6000,
-          timerProgressBar: true,
-          didOpen: toast => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-
-        console.log(err);
-        Toast.fire({
-          icon: 'error',
-          title: `Hubo un error, ${err.response.data.err}`,
-        });
-      });
-  };
 
   const handleOutsideClick = event => {
     if (headerRef.current && !headerRef.current.contains(event.target)) {
@@ -120,7 +72,7 @@ e.preventDefault()
         //         ]
         }
 
-        console.log(data)
+
     axios.post(URL, data, getConfig())
     .then(res=>{
       getUserPlayists(dispatch)
@@ -180,7 +132,7 @@ e.preventDefault()
         </div>
       </form>
       {!ocultar && searchTerm && searchResults.length > 0 && (
-        <ul ref={searchResultsRef} className='searchResults' style={{ padding: '20px' }}>
+        <ul ref={searchResultsRef} className={`searchResults`}>
           {searchResults.map(video => (
             <li key={video.id.videoId} className='search_item'>
               <img src={video.snippet.thumbnails.default.url} alt='Thumbnail del video' />
@@ -190,9 +142,8 @@ e.preventDefault()
                 </button>
               <div className={`playListMenu ${showPlayList === video.id?'showPlayList':''}`}>
                   {playLists?.map(list => (
-                    <li key={list.id} onClick={() => addVideoToList(list.id, video.id.videoId)}>
+                    <li key={list.id} onClick={() => addVideoToList(list.id, video.id.videoId,dispatch)}>
                       {list.name} ({list.videos.length})
-                      
                     </li>
                   ))}
                   <div style={{padding:"20px"}}>
@@ -200,7 +151,7 @@ e.preventDefault()
                     <input name='playListName' type='text' onChange={(e)=>setNewPlayListName(e.target.value)} className='advertisement-input' placeholder='Nombre de tu lista'></input>
                     <button className='advertisement-btn'>Crear PlayList</button>
                     </form>
-                
+                    pedro
                   </div>
                   <footer style={{backgroundColor:"#242424", padding:"20px"}}>
                   <button className='addToListButton' onClick={() => setShowPlayList(false)}><i className="fas fa-minus-circle" /> Ocultar</button>

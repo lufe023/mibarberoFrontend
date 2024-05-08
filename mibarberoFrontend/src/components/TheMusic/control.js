@@ -7,8 +7,10 @@ const useVideoControl = () => {
     const playerRef = useRef(null);
 
     const videoOnReady = (event) => {
-        playerRef.current = event.target;
-        playerRef.current.setVolume(localStorage.getItem("volumen") || 50);
+        if (playerRef.current) {
+            playerRef.current = event.target;
+            playerRef.current.setVolume(localStorage.getItem("volumen") || 50);
+        }
     };
 
     const videoOnStateChange = (event) => {
@@ -25,11 +27,13 @@ const useVideoControl = () => {
 
     const handleVolumeChange = (event) => {
         event.preventDefault();
-        setVolume(event.target.value);
-        if (playerRef.current) {
-            playerRef.current.setVolume(event.target.value);
+        if (event || { target: null }) {
+            setVolume(event.target.value);
+            if (playerRef.current) {
+                playerRef.current.setVolume(event.target.value);
+            }
+            localStorage.setItem("volumen", event.target.value);
         }
-        localStorage.setItem("volumen", event.target.value);
     };
 
     return {

@@ -31,12 +31,6 @@ const dispatch = useDispatch()
             axios
             .delete(URL,getConfig())
             .then(res => {
-              // console.log(res.data.youtubeData.videoIds[0].videoId)
-              // console.log(listId,(res.data.youtubeData.videos?.filter((video) => video.playing == true)[0].videoId !=-1?res.data.youtubeData.videos?.filter((video) => video.playing == true)[0].videoId:res.data.youtubeData.videos[0].videoId))
-              // setPLay(listId,(res.data.youtubeData.videos?.filter((video) => video.playing == true)[0].videoId ||  res.data.youtubeData.videos[0].videoId),dispatch)
-              // console.log(res.data.youtubeData.videos?.filter((video) => video.playing == true)[0].videoId)
-              // console.log([res.data.youtubeData.videos[0]])
-              // console.log(res.data.youtubeData.videos[0].videoId)
               getUserPlayists(dispatch);
               dispatch(updatePlayingList(res.data.youtubeData))
               Swal.fire({
@@ -75,7 +69,7 @@ const dispatch = useDispatch()
       <h4>Sonando ahora <span>{playingList?.name}</span></h4>
         <ul>
         {playingList?.videos?.map((video)=>
-        <li key={video.id} >
+        <li key={video.videoId} >
           <img src={video.thumbnail}/>
           <p>
             {video.title.substring(0,40)}
@@ -90,7 +84,6 @@ const dispatch = useDispatch()
           }
           </div>
         </li>
-  
         )
         } 
         </ul>

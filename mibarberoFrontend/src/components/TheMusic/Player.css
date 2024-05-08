@@ -130,21 +130,20 @@ color: var(--color-white);
     /* background-color: var(--color-white); */
     height: auto;
     min-height: 400px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .playList_item{
+    height: auto;
     display: flex;
     justify-content: flex-start;
     width: 140px;
-    height: 140px;
     padding: 30px;
     flex-direction: column;
     text-align: center;
     gap: 10px;
     box-sizing: content-box;
     transition: all 0.2s;
-
 }
 
 .playList_item p {
@@ -167,6 +166,10 @@ color: var(--color-white);
 
 }
 
+.playList_item:hover .Playlist_Play_Ico{
+    opacity: 1;
+    border-radius: 100px;
+}
 
 .Playlist_Play_Ico{
 position: absolute;
@@ -182,11 +185,12 @@ padding: 10px;
 width: auto;
 gap: 15px;
 box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 1);
+opacity: 0;
+transition: all 0.5s;
 }
 
 .Playlist_Play_Ico i:hover{
 color: var(--color-primary);
-
 }
 
 
